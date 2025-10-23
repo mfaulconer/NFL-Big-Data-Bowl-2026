@@ -1,5 +1,5 @@
-library(tidyverse)
-library(tidymodels)
+# library(tidyverse)
+# library(tidymodels)
 library(vroom)
 library(dplyr)
 library(DataExplorer)
@@ -13,15 +13,17 @@ library(stringr)
 library(lightgbm)
 
 # Load data
-test <- vroom("C:\\Users\\Jenna\\OneDrive\\Documents\\NFL_BDB_2026\\nfl-big-data-bowl-2026-prediction\\test.csv")
-test_input<- vroom("C:\\Users\\Jenna\\OneDrive\\Documents\\NFL_BDB_2026\\nfl-big-data-bowl-2026-prediction\\test_input.csv")
+# test_index <- vroom("C:\\Users\\Jenna\\OneDrive\\Documents\\NFL-Big-Data-Bowl-2026\\data\\test.csv")
+test_input<- vroom("C:\\Users\\Jenna\\OneDrive\\Documents\\NFL-Big-Data-Bowl-2026\\data\\test_input.csv")
+
+# test_input will work just fine don't need test_index right now
 
 # Define paths and constants
-DATA_PATH <- "C:\\Users\\Jenna\\OneDrive\\Documents\\NFL_BDB_2026\\nfl-big-data-bowl-2026-prediction"
+DATA_PATH <- "C:\\Users\\Jenna\\OneDrive\\Documents\\NFL-Big-Data-Bowl-2026\\data"
 TRAIN_PATH <- file.path(DATA_PATH, "train")
 WEEKS <- 1:18
-N_FOLDS <- 5
-RANDOM_STATE <- 42
+# N_FOLDS <- 5
+# RANDOM_STATE <- 42
 
 # Function to load weekly data
 load_weeks <- function(week_nums) {
@@ -52,7 +54,6 @@ cat(sprintf("Data loaded: %d rows, %d games\n", nrow(input_df), uniqueN(input_df
 
 DataExplorer::plot_correlation(input_df)
 DataExplorer::plot_intro(input_df)
-DataExplorer::plot_bar(train)
-DataExplorer::plot_missing(train)
-GGally::ggpairs(train)
-DataExplorer::plot_histogram(train)
+DataExplorer::plot_bar(input_df)
+DataExplorer::plot_missing(output_df)
+DataExplorer::plot_histogram(input_df)
