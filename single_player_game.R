@@ -41,7 +41,7 @@ tyreek_input <- tyreek %>%
 tyreek_output <- out_w11 %>%
   filter(play_id == "1180")
 
-tyreek_play_counts <- tyreek_input %>%
+tyreek_play_counts <- tyreek %>%
   group_by(play_id) %>%
   summarise(num_rows = n()) %>%
   arrange(desc(num_rows))
@@ -50,7 +50,7 @@ tyreek_play_counts <- tyreek_input %>%
 # plot field and tyreek's data so we can see 
 # ------------------------------------------------------------------------------------------
 play_input <- in_w11 %>%
-  filter(play_id == 1180)  # replace with your actual play_id
+  filter(play_id == 2860)  # replace with your actual play_id
 
 # Base field
 field_plot <- ggplot() +
@@ -78,7 +78,7 @@ field_plot +
 
 ## output of that plot above
 play_output <- out_w11 %>%
-  filter(play_id == 1180)  # replace with your actual play_id
+  filter(play_id == 2860)  # replace with your actual play_id
 play_output <- play_output %>%
   left_join(play_input %>% select(nfl_id, player_name),
             by = "nfl_id")
@@ -93,7 +93,8 @@ field_plot +
 # ------------------------------------------------------------------------------------------
 
 play_input <- in_w11 %>%
-  filter(play_id == 1180)  # replace with your actual play_id
+  filter(play_id == 1180) %>%  # replace with your actual play_id
+filter(player_name == "Tyreek Hill")
 
 field_base <- ggplot() +
   # Field background
@@ -125,7 +126,7 @@ anim <- field_base +
   ease_aes('linear')
 
 # Render animation
-animate(anim, nframes = max(play_to_plot$frame_id)*2, renderer = gifski_renderer())
+animate(anim, nframes = max(play_input$frame_id)*2, renderer = gifski_renderer())
 
 # ------------------------------------------------------------------------------------------
 # plot after ball is released for specified play_id

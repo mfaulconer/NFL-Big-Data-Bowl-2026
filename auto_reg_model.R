@@ -297,3 +297,43 @@ cat("RMSE x:", rmse_x, "\n")
 cat("RMSE y:", rmse_y, "\n")
 cat("Overall RMSE:", overall_rmse, "\n")
 
+# ------------------------------------------------------------
+# visualize how off we are 
+# -----------------------------------------------------------
+
+# Compute prediction error for coloring
+play_rmse <- play_output_with_pred %>%
+  mutate(error = sqrt((x - x_pred)^2 + (y - y_pred)^2))
+
+# Field layers only, not a full ggplot object
+field_layers <- list(
+  geom_rect(aes(xmin = 0, xmax = 120, ymin = 0, ymax = 53.3),
+            fill = "palegreen4", color = "white"),
+  geom_rect(aes(xmin = 0, xmax = 10, ymin = 0, ymax = 53.3), 
+            fill = "gray30", alpha = 0.5),
+  geom_rect(aes(xmin = 110, xmax = 120, ymin = 0, ymax = 53.3), 
+            fill = "gray30", alpha = 0.5),
+  geom_vline(xintercept = seq(10, 110, by = 10), color = "white", linewidth = 0.5),
+  scale_x_continuous(limits = c(0, 120)),
+  scale_y_continuous(limits = c(0, 53.3)),
+  coord_fixed(),
+  theme_void()
+)
+
+# Plot trajectories
+ggplot() +
+  field_layers +
+  # Actual trajectory
+  geom_path(data = play_rmse, aes(x = x, y = y, group = nfl_id),
+            color = "blue", linewidth = 1) +
+  # Predicted trajectory
+  geom_path(data = play_rmse, aes(x = x_pred, y = y_pred, group = nfl_id),
+            color = "orange", linetype = "dashed", linewidth = 1) +
+  # Current positions for last frame
+  geom_point(data = play_rmse %>% filter(frame_id == max(frame_id)),
+             aes(x = x_pred, y = y_pred, color = error), size = 3) +
+  scale_color_gradient(low = "green", high = "red") +
+  labs(title = paste("Predicted vs Actual Trajectories: Game", unique(play_rmse$game_id),
+                     "Play", unique(play_rmse$play_id)),
+       color = "Prediction Error (yds)") +
+  theme(legend.position = "right")
