@@ -12,6 +12,8 @@ Project links and deadlines:
 - most common formations
 - top routes
 - interaction of location on the field and score to where they will be
+- zone coverage is more than man coverage so add that to the model with defensive players
+- based off of position and O/D it would help (then orientation and direction would help us know where offense will go since defense is more predictable with coverage)
 
 ## Vision of professors 
 - for predictive competition, dr page want to throw a neural net at the data first and see what we come up with then feature engineer (edit interactions and explanatory variables) from there to predict better
@@ -29,6 +31,8 @@ Look at these links for help on visualization and animation:
 
 [EDA + MODEL + VIDEO + 3D VIDEO](https://www.kaggle.com/code/taylorsamarel/eda-model-video-3d-video) 
 
-[NFL Animations made simple | nfl-tracks](https://www.kaggle.com/code/mohammedshammeer/nfl-animations-made-simple-nfl-tracks)
-
 [ Player Tracking Animation V1](https://www.kaggle.com/code/dedquoc/nfl-bdb-2026-player-tracking-animation-v1)
+
+[how guy link below made his animations](https://www.kaggle.com/code/mohammedshammeer/package-for-animating-tracking-visualization)
+
+[NFL Animations made simple | nfl-tracks](https://www.kaggle.com/code/mohammedshammeer/nfl-animations-made-simple-nfl-tracks)
