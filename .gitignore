@@ -7,3 +7,4 @@ notes.R
 full_game.R
 
 multivaraite_regression.R notes.R full_game.R
+game_input.csv game_output.csv
