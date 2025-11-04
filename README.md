@@ -1,4 +1,24 @@
 # NFL-Big-Data-Bowl-2026
+
+**Team note as of 11/3:**
+FOCUS ONLY ON baseRmultivariate.R file
+
+We need to think more carefully about variables putting into the model
+1 player, 1 play no interaction
+(can't have more covariates than data points)
+see which 5 covariates are the highest
+(derivative in placement and location)
+s, a, v, direction
+
+2 players, 1 play and see their interaction
+3,4,5 ....
+
+Once we can do this in 1 play, this will fix our errors in 1 game and so forth
+
+## File Descriptions
+
+
+ ==============================================================================
 [tyreek hill link](https://www.statmuse.com/nfl/ask/tyreek-hill-2023)
 Team project for predictive analytics. 
 
