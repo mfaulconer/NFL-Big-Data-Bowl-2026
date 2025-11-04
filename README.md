@@ -1,7 +1,7 @@
 # NFL-Big-Data-Bowl-2026
 
 **Team note as of 11/3:**
-FOCUS ONLY ON baseRmultivariate.R file
+FOCUS ONLY ON baseR_multivariate.R file
 
 We need to think more carefully about variables putting into the model
 1 player, 1 play no interaction
@@ -16,9 +16,23 @@ s, a, v, direction
 Once we can do this in 1 play, this will fix our errors in 1 game and so forth
 
 ## File Descriptions
+**baseR_multivaraite.R** 
+
+**eda_animation.R**
+
+**full_game.R**
+
+**multivaraite_regression.R**
+
+**notes.R** 
+
+**one_play.R** working auto regression linear regression model (RMSE ~ 8yrds)
+
+**tidymodels.R** 
 
 
  ==============================================================================
+## Initial team notes
 [tyreek hill link](https://www.statmuse.com/nfl/ask/tyreek-hill-2023)
 Team project for predictive analytics. 
 
