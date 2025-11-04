@@ -16,19 +16,13 @@ s, a, v, direction
 Once we can do this in 1 play, this will fix our errors in 1 game and so forth
 
 ## File Descriptions
-**baseR_multivaraite.R** 
+**baseR_multivaraite.R** current file we are working on to get preprocessing errors fixed (multivariate auto regressive model of 1 - 5 players at the moment)
 
-**eda_animation.R**
-
-**full_game.R**
-
-**multivaraite_regression.R**
-
-**notes.R** 
+**eda_animation.R** plots and animations to visualize data
 
 **one_play.R** working auto regression linear regression model (RMSE ~ 8yrds)
 
-**tidymodels.R** 
+**tidymodels.R** format for hopeful kaggle submission once we fix baseR_multivaraite.R model
 
 
  ==============================================================================
